@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>INST377 – Lab 3: Rock · Paper · Scissors</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-banner" role="banner">
+    <h1>Rock · Paper · Scissors — Play &amp; Learn</h1>
+  </header>
+
+  <!-- Navigation -->
+  <nav aria-label="Primary" class="site-nav">
+    <ul>
+      <li><a href="https://www.umaryland.edu/" target="_blank" rel="noopener">UMD</a></li>
+      <li><a href="https://developer.mozilla.org/" target="_blank" rel="noopener">MDN</a></li>
+      <li><a href="https://classroom.github.com/" target="_blank" rel="noopener">GitHub Classroom</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main layout -->
+  <div class="layout">
+    <!-- Main content -->
+    <main class="main" id="main" role="main">
+      <section aria-labelledby="play-form-title">
+        <h2 id="play-form-title">Play a Round</h2>
+        <form class="rps-form" action="#" method="get">
+          <div class="field">
+            <label for="playerName">Name</label>
+            <input id="playerName" name="playerName" type="text" placeholder="Enter your name" required />
+          </div>
+
+          <div class="field">
+            <label for="playerMove">Choose your move</label>
+            <select id="playerMove" name="playerMove">
+              <option>Rock</option>
+              <option>Paper</option>
+              <option>Scissors</option>
+            </select>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>About This Page</h2>
+        <p>
+          This layout demonstrates a header &amp; footer with shared styling, a horizontal
+          navigation bar with hover states, and a two‑column body using percentage widths.
+          The sidebar changes color on hover, and the form’s name input expands when focused.
+        </p>
+      </section>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" role="complementary" aria-labelledby="rules-title">
+      <h2 id="rules-title">How to Play</h2>
+      <ol>
+        <li>Rock beats Scissors.</li>
+        <li>Paper beats Rock.</li>
+        <li>Scissors beats Paper.</li>
+        <li>Same move → tie.</li>
+      </ol>
+      <p class="tip">Hover this sidebar to see the background change.</p>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-banner" role="contentinfo">
+    <p>&copy; <span id="year"></span> INST377 · Lab 3 — Web Page Layout</p>
+  </footer>
+
+  <script>
+    // Simple JS just to keep the year current
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
