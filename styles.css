@@ -1,0 +1,171 @@
+/* External stylesheet required by the lab */
+/* Typography (custom family for the whole body) */
+:root {
+  --banner-bg: #111827; /* slate-900 */
+  --banner-fg: #f9fafb; /* slate-50 */
+  --page-bg: #f3f4f6;   /* slate-100 */
+  --accent: #2563eb;    /* blue-600 */
+  --sidebar-bg: #e5e7eb;/* slate-200 */
+  --sidebar-bg-hover: #d1d5db; /* slate-300 */
+  --text: #111827;      /* slate-900 */
+  --muted: #4b5563;     /* slate-600 */
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  line-height: 1.5;
+}
+
+/* Header & Footer — same styling, centered text, different color than page, margin + padding */
+.site-banner {
+  background: var(--banner-bg);
+  color: var(--banner-fg);
+  text-align: center;                 /* (2c) center text */
+  padding: 1.25rem 1rem;              /* (2e) padding */
+  margin: 1rem;                       /* (2e) margin */
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.15);
+}
+.site-banner h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  letter-spacing: .02em;
+}
+
+/* Navigation — horizontal, no bullets, with hover */
+.site-nav {
+  max-width: 1200px;
+  margin: 0 auto 1rem;
+  padding: 0 1rem;
+}
+.site-nav ul {
+  list-style: none;                   /* (6a) no bullets */
+  display: flex;                      /* (6a) horizontal */
+  gap: .75rem;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+.site-nav a {
+  display: inline-block;
+  padding: .6rem .9rem;
+  text-decoration: none;
+  color: var(--banner-bg);
+  background: var(--card);
+  border: 1px solid #e5e7eb;
+  border-radius: .6rem;
+  transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.site-nav a:hover {                   /* (6b) hover state */
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0,0,0,.08);
+  background-color: #f8fafc;
+}
+
+/* Two‑column body using percentage widths (3a, 3b, 3c, 3d) */
+.layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem 1.5rem;
+  display: flex;                      /* keep on one line */
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+/* Main content — percentage width + margin + padding */
+.main {
+  width: 68%;                         /* (3a) percentage width */
+  background: var(--card);
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+  padding: 1rem;                      /* (3d) padding */
+  margin: .25rem 0;                   /* (3d) margin */
+  box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+/* Sidebar — percentage width + different color + margin + padding */
+.sidebar {
+  width: 32%;                         /* (3b) percentage width */
+  background: var(--sidebar-bg);      /* (3bi) different color */
+  border: 1px solid #e5e7eb;
+  border-radius: .75rem;
+  padding: 1rem;                      /* (3d) padding */
+  margin: .25rem 0;                   /* (3d) margin */
+  transition: background-color .2s ease;
+}
+/* Hover background change (5b) */
+.sidebar:hover {
+  background-color: var(--sidebar-bg-hover);
+}
+
+.sidebar h2, .main h2 {
+  margin-top: 0;
+  font-size: clamp(1.1rem, 2vw, 1.35rem);
+}
+
+/* Form (4a–4d): name label, select R/P/S, require name, focus expand */
+.rps-form {
+  display: grid;
+  gap: .9rem;
+  margin-bottom: 1rem;
+}
+.field {
+  display: grid;
+  gap: .35rem;
+}
+label {
+  font-weight: 600;
+}
+input[type="text"], select {
+  padding: .65rem .75rem;
+  border-radius: .5rem;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: width .25s ease, box-shadow .15s ease, border-color .15s ease;
+  width: 60%;                         /* base width */
+  max-width: 520px;
+}
+input[type="text"]:focus {
+  width: 80%;                         /* (4d) expands on focus */
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.18);
+}
+
+button {
+  width: fit-content;
+  padding: .65rem 1rem;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  border-radius: .6rem;
+  cursor: pointer;
+  transition: transform .1s ease, box-shadow .1s ease, opacity .2s ease;
+}
+button:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.08); }
+button:active { transform: translateY(0); box-shadow: none; }
+
+/* Footer text */
+footer p {
+  margin: 0;
+  font-size: .95rem;
+  color: var(--banner-fg);
+}
+
+/* Basic responsiveness */
+@media (max-width: 900px) {
+  .layout { flex-direction: column; }
+  .main, .sidebar { width: 100%; }
+  input[type="text"] { width: 100%; }
+  input[type="text"]:focus { width: 100%; }
+}
